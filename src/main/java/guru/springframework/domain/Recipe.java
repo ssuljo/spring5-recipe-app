@@ -1,12 +1,14 @@
 package guru.springframework.domain;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@Accessors(chain = true)
 @Entity
 public class Recipe {
     @Id
