@@ -2,11 +2,11 @@ package guru.springframework.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Data
-@EqualsAndHashCode(exclude = "recipe")
 @Entity
 public class Notes {
     @Id
@@ -14,6 +14,8 @@ public class Notes {
     private Long id;
 
     @OneToOne
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Recipe recipe;
 
     @Lob

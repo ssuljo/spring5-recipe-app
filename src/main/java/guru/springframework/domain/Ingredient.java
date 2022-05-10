@@ -2,12 +2,12 @@ package guru.springframework.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
-@EqualsAndHashCode(exclude = "recipe")
 @Entity
 public class Ingredient {
     @Id
@@ -17,6 +17,8 @@ public class Ingredient {
     private BigDecimal amount;
 
     @ManyToOne
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Recipe recipe;
 
     @OneToOne
