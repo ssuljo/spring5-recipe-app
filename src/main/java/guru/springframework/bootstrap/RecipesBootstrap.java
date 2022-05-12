@@ -106,6 +106,9 @@ public class RecipesBootstrap implements ApplicationListener<ContextRefreshedEve
         guacRecipe.setCookTime(0);
         guacRecipe.setDifficulty(Difficulty.EASY);
         guacRecipe.setDirections("A lot of steps");
+        guacRecipe.setServings(4);
+        guacRecipe.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
+        guacRecipe.setSource("Simply Recipes");
 
         Notes guacNotes = new Notes();
         guacNotes.setRecipeNotes("Be careful handling chilis! If using, it's best to wear food-safe gloves. \n" +
@@ -133,6 +136,9 @@ public class RecipesBootstrap implements ApplicationListener<ContextRefreshedEve
         tacosRecipe.setCookTime(15);
         tacosRecipe.setDifficulty(Difficulty.MODERATE);
         tacosRecipe.setDirections("A lot of steps");
+        tacosRecipe.setServings(2);
+        tacosRecipe.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
+        tacosRecipe.setSource("Simply Recipes");
 
         Notes tacosNotes = new Notes();
         tacosNotes.setRecipeNotes("Look for ancho chile powder with the Mexican ingredients at your grocery store, \n" +
