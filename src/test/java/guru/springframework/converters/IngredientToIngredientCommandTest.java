@@ -42,11 +42,11 @@ public class IngredientToIngredientCommandTest extends TestCase {
 
         //then
         assertNotNull(ingredient);
-        assertNotNull(ingredient.getUnitOfMeasure());
+        assertNotNull(ingredient.getUom());
         assertEquals(INGREDIENT_ID, ingredient.getId());
         assertEquals(DESCRIPTION, ingredient.getDescription());
         assertEquals(AMOUNT, ingredient.getAmount());
-        assertEquals(UOM_ID, ingredient.getUnitOfMeasure().getId());
+        assertEquals(UOM_ID, ingredient.getUom().getId());
     }
 
     public void testConvertWithNullUom() {
@@ -63,7 +63,7 @@ public class IngredientToIngredientCommandTest extends TestCase {
 
         //then
         assertNotNull(ingredient);
-        assertNull(ingredient.getUnitOfMeasure());
+        assertNull(ingredient.getUom());
         assertEquals(INGREDIENT_ID, ingredient.getId());
         assertEquals(DESCRIPTION, ingredient.getDescription());
         assertEquals(AMOUNT, ingredient.getAmount());

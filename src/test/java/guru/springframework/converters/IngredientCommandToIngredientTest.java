@@ -36,7 +36,7 @@ public class IngredientCommandToIngredientTest extends TestCase {
         IngredientCommand ingredientSource = new IngredientCommand();
         ingredientSource.setId(INGREDIENT_ID);
         ingredientSource.setAmount(AMOUNT);
-        ingredientSource.setUnitOfMeasure(uomSource);
+        ingredientSource.setUom(uomSource);
         ingredientSource.setDescription(DESCRIPTION);
 
         //when
@@ -57,7 +57,7 @@ public class IngredientCommandToIngredientTest extends TestCase {
         IngredientCommand ingredientSource = new IngredientCommand();
         ingredientSource.setId(INGREDIENT_ID);
         ingredientSource.setAmount(AMOUNT);
-        ingredientSource.setUnitOfMeasure(null);
+        ingredientSource.setUom(null);
         ingredientSource.setDescription(DESCRIPTION);
 
         //when
