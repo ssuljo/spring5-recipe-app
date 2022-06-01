@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 import java.util.HashSet;
 import java.util.Set;
 
-public class RecipeRecipeCommandTest extends TestCase {
+public class RecipeToRecipeCommandTest extends TestCase {
 
     public static final Long RECIPE_ID = 1L;
     public static final Integer COOK_TIME = Integer.valueOf("5");

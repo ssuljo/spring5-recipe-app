@@ -22,14 +22,12 @@ public class RecipeControllerTest extends TestCase {
     @Mock
     RecipeService recipeService;
 
-    RecipeController controller;
-
     MockMvc mockMvc;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        controller = new RecipeController(recipeService);
+        RecipeController controller = new RecipeController(recipeService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 

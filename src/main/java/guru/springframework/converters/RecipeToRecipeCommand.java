@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
 
-    final IngredientToIngredientCommand ingredientConverter;
-    final CategoryToCategoryCommand categoryConverter;
-    final NotesToNotesCommand notesConverter;
+    private final CategoryToCategoryCommand categoryConverter;
+    private final IngredientToIngredientCommand ingredientConverter;
+    private final NotesToNotesCommand notesConverter;
 
     public RecipeToRecipeCommand(IngredientToIngredientCommand ingredientConverter,
                                  CategoryToCategoryCommand categoryConverter,
