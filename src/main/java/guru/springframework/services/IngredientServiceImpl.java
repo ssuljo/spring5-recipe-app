@@ -11,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Objects;
 import java.util.Optional;
 
 @Slf4j
@@ -77,14 +76,29 @@ public class IngredientServiceImpl implements IngredientService {
             ingredientFound.setDescription(command.getDescription());
             ingredientFound.setAmount(command.getAmount());
         }
-        else recipe.addIngredient(Objects.requireNonNull(ingredientCommandToIngredient.convert(command)));
+        else {
+            Ingredient ingredient = ingredientCommandToIngredient.convert(command);
+            assert ingredient != null;
+            ingredient.setRecipe(recipe);
+            recipe.addIngredient(ingredient);
+        }
 
         Recipe savedRecipe = recipeRepository.save(recipe);
 
+        Optional<Ingredient> savedIngredientOptional = savedRecipe.getIngredients()
+                        .stream()
+                        .filter(ingredient -> ingredient.getId().equals(command.getId()))
+                        .findFirst();
+
+        if (!savedIngredientOptional.isPresent()){
+            savedIngredientOptional=savedRecipe.getIngredients().stream()
+                    .filter(recipeIngredient->recipeIngredient.getDescription().equals(command.getDescription()))
+                    .filter(recipeIngredient->recipeIngredient.getAmount().equals(command.getAmount()))
+                    .filter(recipeIngredient->recipeIngredient.getUom().getId().equals(command.getUom().getId()))
+                    .findFirst();
+        }
+
         // todo check for fail
-        return ingredientToIngredientCommand.convert(savedRecipe.getIngredients().stream()
-                .filter(ingredient -> ingredient.getId().equals(command.getId()))
-                .findFirst()
-                .get());
+        return ingredientToIngredientCommand.convert(savedIngredientOptional.get());
     }
 }

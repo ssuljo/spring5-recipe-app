@@ -29,6 +29,10 @@
 
                         <div class="table-responsive" th:if="${not #lists.isEmpty(recipe.ingredients)}">
                             <table class="table table-hover ">
+                                <div class="col-md-1">
+                                    <a class="btn btn-light" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/new'}"
+                                       role="button">New</a>
+                                </div>
                                 <thead class="thead-inverse">
                                 <tr>
                                     <th>ID</th>
