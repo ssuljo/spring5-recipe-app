@@ -25,6 +25,10 @@
                     <div class="card-header bg-primary text-light">
                         <!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
                         <h7 class="card-title" th:text="${recipe.description}">Recipe Description Here!</h7>
+                        <div class="col-md-9">
+                            <a class="btn btn-light" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/image'}"
+                               role="button">Change Image</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row justify-content-center">
@@ -40,6 +44,11 @@
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="../../static/images/guacamole400x400WithX.jpeg"
+                            th:src="@{/images/guacamole400x400.jpeg}"
+                            width="200" height="200">
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-3">
