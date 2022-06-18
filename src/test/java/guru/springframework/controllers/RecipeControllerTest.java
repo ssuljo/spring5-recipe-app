@@ -29,7 +29,9 @@ public class RecipeControllerTest extends TestCase {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         RecipeController controller = new RecipeController(recipeService);
-        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(controller)
+                .setControllerAdvice(new ControllerExceptionHandler())
+                .build();
     }
 
     public void testShowById() throws Exception {
